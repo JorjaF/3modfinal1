@@ -8,8 +8,19 @@ RSpec.describe "BookSearch API", type: :request do
       let(:quantity) { 5 }
 
       before do
+        stub_request(:get, "http://api.weatherapi.com/v1/current.json?key=552cd5f4299349deb83155448232409&q=Denver,CO")
+        .with(
+          headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'Host'=>'api.weatherapi.com',
+        'User-Agent'=>'Ruby'
+          }).
+        to_return(status: 200, body: "", headers: {})
+        
         stub_request(:get, "https://openlibrary.org/search.json?q=#{location}&page=#{quantity}")
-          .to_return(status: 200, body: {}.to_json) # Replace with the expected response
+          .to_return(status: 200, body: {}.to_json) 
+        
         get "/api/v1/book-search", params: { location: location, quantity: quantity }
       end
 

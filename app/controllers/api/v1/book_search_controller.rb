@@ -5,7 +5,7 @@ class Api::V1::BookSearchController < ApplicationController
   def search
     location = params[:location]
     quantity = params[:quantity].to_i
-    base_url = Rails.configuration.open_library_base_url
+    # base_url = Rails.configuration.open_library_base_url
 
     response_data = BookSearchFacade.search(location, quantity)
     

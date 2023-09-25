@@ -17,4 +17,12 @@ class WeatherApiFacade
     Rails.logger.error("Error fetching weather data: #{e.message}")
     nil
   end
+
+  def self.fetch_daily_weather(location, days)
+    uri = URI("#{BASE_URL}/forecast.json?key=#{API_KEY}&q=#{location}&days=#{days}&aqi=no&alerts=no")
+    response = Net::HTTP.get_response(uri)
+    JSON.parse(response.body, symbolize_names: true)
+  rescue StandardError => e
+    Rails.logger.error("Error fetching weather data: #{e.message}")
+  end
 end

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
   namespace :api do
     namespace :v1 do
       resources :forecast, only: [:index, :show]
+      resources :daily_weather, only: [:index, :show]
+
+      get '/book-search', to: 'book_search#search'
     end
   end
 end

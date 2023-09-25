@@ -5,6 +5,8 @@ class Api::V1::BookSearchController < ApplicationController
   def search
     location = params[:location]
     quantity = params[:quantity].to_i
+    base_url = Rails.configuration.open_library_base_url
+
     response_data = BookSearchFacade.search(location, quantity)
     
     if quantity <= 0
@@ -12,8 +14,8 @@ class Api::V1::BookSearchController < ApplicationController
       return
     end
 
-    uri = URI("https://openlibrary.org/api/books.json?q=#{location}&limit=#{quantity}")
-    response = Net::HTTP.get(uri)
+    api_url = "#{base_url}/search.json?q=#{location}&page=#{quantity}"
+    response = Net::HTTP.get(URI(api_url))
 
     data = JSON.parse(response, symbolize_names: true)
     destination_city = location

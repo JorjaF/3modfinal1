@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :forecast, only: [:index, :show]
+      resources :one_day_forecast, only: [:index, :show]
+      resources :five_day_forecast, only: [:index, :show]
     end
   end
 end

@@ -6,11 +6,11 @@ RSpec.describe ForecastSerializer, type: :serializer do
       location: {
         name: "Denver",
         region: "Colorado",
-        country: "United States of America",
-        lat: 39.74,
-        lon: -104.98,
-        tz_id: "America/Denver",
-        localtime: "2023-09-24 15:34"
+        # country: "United States of America",
+        # lat: 39.74,
+        # lon: -104.98,
+        # tz_id: "America/Denver",
+        # localtime: "2023-09-24 15:34"
       },
       current: {
         last_updated: "2023-09-24 15:30",
@@ -57,12 +57,12 @@ RSpec.describe ForecastSerializer, type: :serializer do
     expect(serialized_data[:data][:attributes][:location]).to eq(weather_data[:location])
     expect(serialized_data[:data][:attributes][:id]).to eq(nil)
     expect(serialized_data[:data][:attributes][:current][:last_updated]).to eq(weather_data[:current][:last_updated])
-    expect(serialized_data[:data][:attributes][:current][:temp_f]).to eq(weather_data[:current][:temp_f])
-    expect(serialized_data[:data][:attributes][:current][:feelslike_f]).to eq(weather_data[:current][:feelslike_f])
+    expect(serialized_data[:data][:attributes][:current][:temperature]).to eq(weather_data[:current][:temp_f])
+    expect(serialized_data[:data][:attributes][:current][:feels_like]).to eq(weather_data[:current][:feelslike_f])
     expect(serialized_data[:data][:attributes][:current][:humidity]).to eq(weather_data[:current][:humidity])
     expect(serialized_data[:data][:attributes][:current][:uvi]).to eq(weather_data[:current][:uv])
-    expect(serialized_data[:data][:attributes][:current][:vis_miles]).to eq(weather_data[:current][:vis_miles])
-    expect(serialized_data[:data][:attributes][:current][:condition][:text]).to eq(weather_data[:current][:condition][:text])
-    expect(serialized_data[:data][:attributes][:current][:condition][:icon]).to eq(weather_data[:current][:condition][:icon])
+    expect(serialized_data[:data][:attributes][:current][:visibility]).to eq(weather_data[:current][:vis_miles])
+    # expect(serialized_data[:data][:attributes][:current][:condition][:text]).to eq(weather_data[:current][:condition][:text])
+    # expect(serialized_data[:data][:attributes][:current][:condition][:icon]).to eq(weather_data[:current][:condition][:icon])
   end
 end

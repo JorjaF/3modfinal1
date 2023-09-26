@@ -1,0 +1,41 @@
+{
+    "location": {
+        "name": "Denver",
+        "region": "Colorado",
+        "country": "United States of America",
+        "lat": 39.74,
+        "lon": -104.98,
+        "tz_id": "America/Denver",
+        "localtime_epoch": 1695685293,
+        "localtime": "2023-09-25 17:41"
+    },
+    "current": {
+        "last_updated_epoch": 1695684600,
+        "last_updated": "2023-09-25 17:30",
+        "temp_c": 27.4,
+        "temp_f": 81.3,
+        "is_day": 1,
+        "condition": {
+            "text": "Partly cloudy",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+            "code": 1003
+        },
+        "wind_mph": 2.2,
+        "wind_kph": 3.6,
+        "wind_degree": 10,
+        "wind_dir": "N",
+        "pressure_mb": 1023.0,
+        "pressure_in": 30.21,
+        "precip_mm": 0.0,
+        "precip_in": 0.0,
+        "humidity": 8,
+        "cloud": 25,
+        "feelslike_c": 25.5,
+        "feelslike_f": 78.0,
+        "vis_km": 16.0,
+        "vis_miles": 9.0,
+        "uv": 7.0,
+        "gust_mph": 7.0,
+        "gust_kph": 11.2
+    }
+}

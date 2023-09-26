@@ -3,6 +3,7 @@ require "webmock/rspec"
 
 RSpec.describe "Weather Forecast API", type: :request do
   before do
+
     body = File.read("spec/fixtures/one_day_forecast_response.json")
 
     stub_request(:get, "http://api.weatherapi.com/v1/current.json?key=552cd5f4299349deb83155448232409&q=Denver,CO")

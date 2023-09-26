@@ -15,6 +15,7 @@ RSpec.describe "Weather Forecast API", type: :request do
   end
 
   describe "GET /api/v1/forecast/:location" do
+
     it "returns a JSON response with the expected formatted data" do
     
       stub_request(:get, "http://api.weatherapi.com/v1/current.json?key=552cd5f4299349deb83155448232409&q=denver,co")
@@ -46,6 +47,7 @@ RSpec.describe "Weather Forecast API", type: :request do
           "name" => "Denver",
           "region" => "Colorado"
         }
+
       }
     }
   }
@@ -66,7 +68,6 @@ end
     #   require 'pry'; binding.pry
     #   daily_weather = json_response["data"]["attributes"]["daily_weather"]
     #   expect(daily_weather.count).to eq(5)
-
     #   daily_weather.each do |day|
     #     expect(day["date"]).to match(/\d{4}-\d{2}-\d{2}/)
     #     expect(day["sunrise"]).to match(/\d{2}:\d{2}/)

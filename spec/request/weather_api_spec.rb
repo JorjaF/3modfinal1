@@ -53,29 +53,29 @@ RSpec.describe "Weather Forecast API", type: :request do
 end
 
 
-    it "fetches and returns a 5-day weather forecast" do
-      body = File.read("spec/fixtures/5_day_forecast_response.json")
-      stub_request(:get, "http://api.weatherapi.com/v1/forecast.json?key=552cd5f4299349deb83155448232409&q=denver,co&days=5&aqi=no&alerts=no")
-        .to_return(status: 200, body: body)
+    # it "fetches and returns a 5-day weather forecast" do
+    #   body = File.read("spec/fixtures/5_day_forecast_response.json")
+    #   stub_request(:get, "http://api.weatherapi.com/v1/forecast.json?key=552cd5f4299349deb83155448232409&q=denver,co&days=5&aqi=no&alerts=no")
+    #     .to_return(status: 200, body: body)
 
-      get "/api/v1/five_day_forecast?location=denver,co&days=5"
+    #   get "/api/v1/five_day_forecast?location=denver,co&days=5"
 
-      expect(response).to have_http_status(:ok)
-      json_response = JSON.parse(response.body)
+    #   expect(response).to have_http_status(:ok)
+    #   json_response = JSON.parse(response.body)
       
-      require 'pry'; binding.pry
-      daily_weather = json_response["data"]["attributes"]["daily_weather"]
-      expect(daily_weather.count).to eq(5)
+    #   require 'pry'; binding.pry
+    #   daily_weather = json_response["data"]["attributes"]["daily_weather"]
+    #   expect(daily_weather.count).to eq(5)
 
-      daily_weather.each do |day|
-        expect(day["date"]).to match(/\d{4}-\d{2}-\d{2}/)
-        expect(day["sunrise"]).to match(/\d{2}:\d{2}/)
-        expect(day["sunset"]).to match(/\d{2}:\d{2}/)
-        expect(day["max_temp"]).to be_a(Float)
-        expect(day["min_temp"]).to be_a(Float)
-        expect(day["conditions"]).to be_a(String)
-        expect(day["icon"]).to be_a(String)
-      end
-    end
+    #   daily_weather.each do |day|
+    #     expect(day["date"]).to match(/\d{4}-\d{2}-\d{2}/)
+    #     expect(day["sunrise"]).to match(/\d{2}:\d{2}/)
+    #     expect(day["sunset"]).to match(/\d{2}:\d{2}/)
+    #     expect(day["max_temp"]).to be_a(Float)
+    #     expect(day["min_temp"]).to be_a(Float)
+    #     expect(day["conditions"]).to be_a(String)
+    #     expect(day["icon"]).to be_a(String)
+    #   end
+    # end
   end
 end

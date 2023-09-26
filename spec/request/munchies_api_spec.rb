@@ -82,7 +82,6 @@ RSpec.describe "Munchies API", type: :request do
         }
       }
       yelp_response_body = File.read("spec/fixtures/munchies_response.json")
-
       expect(JSON.parse(yelp_response_body)).to eq(expected_response)
     end
   end

@@ -53,7 +53,7 @@ RSpec.describe "Munchies API", type: :request do
         .with(
           headers: {
             'Accept' => 'application/json',
-            'Authorization' => 'Bearer YWCOm_qx25dKgm5Z9I-BVJgC-RPfZIYTYJvLD37Ep0GWJHOHLL_EoyVxWsJAXeFE9P6k3Neho3HhmpbBHIsuqZ-9GDd3hK7le5E9gmdiBHH6pinVzcXEMeH2eQETZXY'
+            'Authorization' => "Bearer #{Rails.application.credentials.yelp_api_key}",
           }
         )
         .to_return(

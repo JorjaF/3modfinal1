@@ -3,20 +3,8 @@ class FiveDayForecastSerializer
 
   set_id { nil }
 
-  attribute :location do |object|
-    {
-      name: object[:location][:name],
-      region: object[:location][:region],
-      country: object[:location][:country],
-      lat: object[:location][:lat],
-      lon: object[:location][:lon],
-      tz_id: object[:location][:tz_id],
-      localtime: object[:location][:localtime]
-    }
-  end
-
-  attribute :daily_weather do |object|
-    object[:daily_weather].map do |day|
+  attribute :data do |object|
+    object[:data].map do |day|
       {
         date: day[:date],
         sunrise: day[:sunrise],
